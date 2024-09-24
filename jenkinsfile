@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Use Maven to build the Spring Boot application
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run the unit tests (JUnit by default)
+                sh 'mvn test'
+            }
+        }
+    }
+}
